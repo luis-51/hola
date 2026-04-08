@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Cursos en línea - Aprender programación, diseño y desarrollo web">
+<meta name="keywords" content="cursos, educación, programación, JavaScript, diseño web">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Cursos - Mi Empresa">
+<meta property="og:description" content="Cursos profesionales en línea para developers y diseñadores">
+<meta property="og:image" content="https://picsum.photos/1200/630">
+<title>Cursos - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="tienda.html"><i class="fas fa-shopping-bag"></i> Tienda</a>
+<a class="protected" href="cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+<a class="protected" href="membresias.html"><i class="fas fa-crown"></i> Membresías</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+
+<main>
+<section class="hero" style="background-image: url('https://picsum.photos/1920/1080?random=3'); background-size: cover; background-position: center;">
+<div class="hero-content">
+<h2>📚 Aprende Desarrollo Web & Diseño</h2>
+<p>Cursos profesionales con certificado y acceso de por vida</p>
+<button class="btn-primary" onclick="Chat.openChat()"><i class="fas fa-comments"></i> ¿Qué curso necesitas?</button>
+</div>
+</section>
+
+<!-- ESTADÍSTICAS DE CURSOS -->
+<section class="stats-section" data-aos="fade-up">
+<div class="stat">
+<h3>500+</h3>
+<p>Estudiantes activos</p>
+</div>
+<div class="stat">
+<h3>4.9★</h3>
+<p>Calificación promedio</p>
+</div>
+<div class="stat">
+<h3>95%</h3>
+<p>Tasa de certificación</p>
+</div>
+<div class="stat">
+<h3>24/7</h3>
+<p>Soporte disponible</p>
+</div>
+</section>
+
+<!-- CURSOS DISPONIBLES -->
+<section class="cursos-section" data-aos="fade-up">
+<h2>🎓 Catálogo de Cursos</h2>
+
+<div class="cursos-grid">
+
+<!-- CURSO 1 -->
+<div class="curso-card" data-aos="fade-up">
+<div class="curso-header" style="background: linear-gradient(135deg, #007bff, #0056b3);">
+<i class="fas fa-laptop-code fa-3x" style="color: white;"></i>
+<span class="curso-nivel">Intermedio</span>
+</div>
+<div class="curso-body">
+<h3>Web Avanzado</h3>
+<p class="curso-descripcion">HTML5, CSS3, JavaScript moderno y frameworks populares</p>
+
+<div class="curso-detalles">
+<div class="detalle">
+<i class="fas fa-clock"></i>
+<span>60+ horas</span>
+</div>
+<div class="detalle">
+<i class="fas fa-video"></i>
+<span>12 módulos</span>
+</div>
+<div class="detalle">
+<i class="fas fa-users"></i>
+<span>450+ estudiantes</span>
+</div>
+<div class="detalle">
+<i class="fas fa-star"></i>
+<span>4.9★</span>
+</div>
+</div>
+
+<div class="curso-temario">
+<strong>Incluye:</strong>
+<ul>
+<li>✅ HTML5 semántico</li>
+<li>✅ CSS3 avanzado</li>
+<li>✅ JavaScript ES6+</li>
+<li>✅ APIs REST</li>
+<li>✅ Proyectos reales</li>
+<li>✅ Certificado profesional</li>
+</ul>
+</div>
+
+<div class="curso-precio">
+<span class="precio">$199.99</span>
+<span class="original">$399.99</span>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Curso: Web Avanzado', 199.99); Notifications.success('¡Curso agregado!')">
+📚 Enrolar Ahora
+</button>
+<button class="btn-secondary" onclick="Notifications.info('Detalles: módulos, lecciones, proyectos incluidos')">
+Ver Detalles
+</button>
+</div>
+</div>
+
+<!-- CURSO 2 -->
+<div class="curso-card" data-aos="fade-up">
+<div class="curso-header" style="background: linear-gradient(135deg, #FFD700, #FF8C00);">
+<i class="fas fa-code fa-3x" style="color: white;"></i>
+<span class="curso-nivel">Avanzado</span>
+</div>
+<div class="curso-body">
+<h3>JavaScript Completo</h3>
+<p class="curso-descripcion">Domina JavaScript desde lo básico hasta conceptos avanzados</p>
+
+<div class="curso-detalles">
+<div class="detalle">
+<i class="fas fa-clock"></i>
+<span>80+ horas</span>
+</div>
+<div class="detalle">
+<i class="fas fa-video"></i>
+<span>15 módulos</span>
+</div>
+<div class="detalle">
+<i class="fas fa-users"></i>
+<span>650+ estudiantes</span>
+</div>
+<div class="detalle">
+<i class="fas fa-star"></i>
+<span>4.8★</span>
+</div>
+</div>
+
+<div class="curso-temario">
+<strong>Incluye:</strong>
+<ul>
+<li>✅ Fundamentos JS</li>
+<li>✅ POO y Functional</li>
+<li>✅ Async/Await</li>
+<li>✅ Manipulación DOM</li>
+<li>✅ 200+ ejercicios</li>
+<li>✅ Certificado</li>
+</ul>
+</div>
+
+<div class="curso-precio">
+<span class="precio">$249.99</span>
+<span class="original">$499.99</span>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Curso: JavaScript Completo', 249.99); Notifications.success('¡Curso agregado!')">
+📚 Enrolar Ahora
+</button>
+<button class="btn-secondary" onclick="Notifications.info('Detalles: módulos, lecciones, proyectos incluidos')">
+Ver Detalles
+</button>
+</div>
+</div>
+
+<!-- CURSO 3 -->
+<div class="curso-card" data-aos="fade-up">
+<div class="curso-header" style="background: linear-gradient(135deg, #FF6B6B, #FF5252);">
+<i class="fas fa-palette fa-3x" style="color: white;"></i>
+<span class="curso-nivel">Principiante</span>
+</div>
+<div class="curso-body">
+<h3>Diseño UI/UX Básico</h3>
+<p class="curso-descripcion">Crea interfaces hermosas y funcionales desde cero</p>
+
+<div class="curso-detalles">
+<div class="detalle">
+<i class="fas fa-clock"></i>
+<span>40+ horas</span>
+</div>
+<div class="detalle">
+<i class="fas fa-video"></i>
+<span>10 módulos</span>
+</div>
+<div class="detalle">
+<i class="fas fa-users"></i>
+<span>320+ estudiantes</span>
+</div>
+<div class="detalle">
+<i class="fas fa-star"></i>
+<span>4.9★</span>
+</div>
+</div>
+
+<div class="curso-temario">
+<strong>Incluye:</strong>
+<ul>
+<li>✅ Principios de diseño</li>
+<li>✅ Herramientas (Figma)</li>
+<li>✅ Prototipos interactivos</li>
+<li>✅ Psicología del color</li>
+<li>✅ Plugins y recursos</li>
+<li>✅ Certificado</li>
+</ul>
+</div>
+
+<div class="curso-precio">
+<span class="precio">$179.99</span>
+<span class="original">$349.99</span>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Curso: Diseño UI/UX', 179.99); Notifications.success('¡Curso agregado!')">
+📚 Enrolar Ahora
+</button>
+<button class="btn-secondary" onclick="Notifications.info('Detalles: módulos, lecciones, proyectos incluidos')">
+Ver Detalles
+</button>
+</div>
+</div>
+
+<!-- CURSO 4 -->
+<div class="curso-card" data-aos="fade-up">
+<div class="curso-header" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);">
+<i class="fas fa-react fa-3x" style="color: white;"></i>
+<span class="curso-nivel">Intermedio</span>
+</div>
+<div class="curso-body">
+<h3>React Profesional</h3>
+<p class="curso-descripcion">Crea aplicaciones modernas con React y librerías populares</p>
+
+<div class="curso-detalles">
+<div class="detalle">
+<i class="fas fa-clock"></i>
+<span>50+ horas</span>
+</div>
+<div class="detalle">
+<i class="fas fa-video"></i>
+<span>12 módulos</span>
+</div>
+<div class="detalle">
+<i class="fas fa-users"></i>
+<span>380+ estudiantes</span>
+</div>
+<div class="detalle">
+<i class="fas fa-star"></i>
+<span>4.8★</span>
+</div>
+</div>
+
+<div class="curso-temario">
+<strong>Incluye:</strong>
+<ul>
+<li>✅ React Hooks</li>
+<li>✅ Redux/Context</li>
+<li>✅ REST APIs</li>
+<li>✅ Componentes reutilizables</li>
+<li>✅ Testing</li>
+<li>✅ Certificado</li>
+</ul>
+</div>
+
+<div class="curso-precio">
+<span class="precio">$279.99</span>
+<span class="original">$549.99</span>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Curso: React Profesional', 279.99); Notifications.success('¡Curso agregado!')">
+📚 Enrolar Ahora
+</button>
+<button class="btn-secondary" onclick="Notifications.info('Detalles: módulos, lecciones, proyectos incluidos')">
+Ver Detalles
+</button>
+</div>
+</div>
+
+<!-- CURSO 5 -->
+<div class="curso-card" data-aos="fade-up">
+<div class="curso-header" style="background: linear-gradient(135deg, #FFB6C1, #FF69B4);">
+<i class="fas fa-database fa-3x" style="color: white;"></i>
+<span class="curso-nivel">Avanzado</span>
+</div>
+<div class="curso-body">
+<h3>Bases de Datos & SQL</h3>
+<p class="curso-descripcion">Diseña y administra bases de datos profesionales</p>
+
+<div class="curso-detalles">
+<div class="detalle">
+<i class="fas fa-clock"></i>
+<span>55+ horas</span>
+</div>
+<div class="detalle">
+<i class="fas fa-video"></i>
+<span>13 módulos</span>
+</div>
+<div class="detalle">
+<i class="fas fa-users"></i>
+<span>280+ estudiantes</span>
+</div>
+<div class="detalle">
+<i class="fas fa-star"></i>
+<span>4.7★</span>
+</div>
+</div>
+
+<div class="curso-temario">
+<strong>Incluye:</strong>
+<ul>
+<li>✅ SQL avanzado</li>
+<li>✅ Normalización</li>
+<li>✅ MongoDB</li>
+<li>✅ Índices y optimización</li>
+<li>✅ Backups automáticos</li>
+<li>✅ Certificado</li>
+</ul>
+</div>
+
+<div class="curso-precio">
+<span class="precio">$229.99</span>
+<span class="original">$459.99</span>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Curso: Bases de Datos', 229.99); Notifications.success('¡Curso agregado!')">
+📚 Enrolar Ahora
+</button>
+<button class="btn-secondary" onclick="Notifications.info('Detalles: módulos, lecciones, proyectos incluidos')">
+Ver Detalles
+</button>
+</div>
+</div>
+
+<!-- CURSO 6 -->
+<div class="curso-card" data-aos="fade-up">
+<div class="curso-header" style="background: linear-gradient(135deg, #95E1D3, #38ADA9);">
+<i class="fas fa-server fa-3x" style="color: white;"></i>
+<span class="curso-nivel">Intermedio</span>
+</div>
+<div class="curso-body">
+<h3>Node.js & Express</h3>
+<p class="curso-descripcion">Crea servidores potentes y APIs profesionales</p>
+
+<div class="curso-detalles">
+<div class="detalle">
+<i class="fas fa-clock"></i>
+<span>45+ horas</span>
+</div>
+<div class="detalle">
+<i class="fas fa-video"></i>
+<span>11 módulos</span>
+</div>
+<div class="detalle">
+<i class="fas fa-users"></i>
+<span>410+ estudiantes</span>
+</div>
+<div class="detalle">
+<i class="fas fa-star"></i>
+<span>4.8★</span>
+</div>
+</div>
+
+<div class="curso-temario">
+<strong>Incluye:</strong>
+<ul>
+<li>✅ Node.js fundamentals</li>
+<li>✅ Express.js</li>
+<li>✅ Autenticación JWT</li>
+<li>✅ APIs RESTful</li>
+<li>✅ Middleware</li>
+<li>✅ Certificado</li>
+</ul>
+</div>
+
+<div class="curso-precio">
+<span class="precio">$219.99</span>
+<span class="original">$439.99</span>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Curso: Node.js', 219.99); Notifications.success('¡Curso agregado!')">
+📚 Enrolar Ahora
+</button>
+<button class="btn-secondary" onclick="Notifications.info('Detalles: módulos, lecciones, proyectos incluidos')">
+Ver Detalles
+</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- RUTAS DE APRENDIZAJE -->
+<section class="rutas-section" data-aos="fade-up">
+<h2>🗺️ Rutas de Aprendizaje Recomendadas</h2>
+<div class="rutas-grid">
+<div class="ruta-card">
+<h3>Para Principiantes</h3>
+<ol>
+<li>✅ Web Avanzado</li>
+<li>✅ JavaScript Completo</li>
+<li>✅ Diseño UI/UX</li>
+</ol>
+<button class="btn-primary" onclick="Notifications.info('Ruta: Principiante - 190 horas de contenido')">
+Ver Ruta
+</button>
+</div>
+<div class="ruta-card">
+<h3>Para Developers</h3>
+<ol>
+<li>✅ JavaScript Completo</li>
+<li>✅ React Profesional</li>
+<li>✅ Node.js & Express</li>
+</ol>
+<button class="btn-primary" onclick="Notifications.info('Ruta: Developer - 175 horas de contenido')">
+Ver Ruta
+</button>
+</div>
+<div class="ruta-card">
+<h3>Full Stack</h3>
+<ol>
+<li>✅ Todas las anteriores</li>
+<li>✅ Bases de Datos</li>
+<li>✅ Deployment</li>
+</ol>
+<button class="btn-primary" onclick="Notifications.success('Ruta completa: $999.99 en lugar de $2,399.99')" style="background: linear-gradient(135deg, #FF6B6B, #FF5252);">
+Oferta Especial
+</button>
+</div>
+</div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="beneficios-cursos" data-aos="fade-up">
+<h2>🎁 Lo que incluye cada curso</h2>
+<div class="beneficios-grid">
+<div class="beneficio">
+<i class="fas fa-video"></i>
+<h4>Videos en HD</h4>
+<p>Lecciones grabadas en alta definición</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-file-code"></i>
+<h4>Código Descargable</h4>
+<p>Todos los ejemplos y proyectos</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-certificate"></i>
+<h4>Certificado</h4>
+<p>Profesional y verificable</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-infinity"></i>
+<h4>Acceso de Vida</h4>
+<p>Ver el curso cuando quieras</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-headset"></i>
+<h4>Soporte Q&A</h4>
+<p>Preguntas respondidas en 24h</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-sync-alt"></i>
+<h4>Actualizaciones</h4>
+<p>Contenido siempre actualizado</p>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios-cursos" data-aos="fade-up">
+<h2>⭐ Opiniones de Estudiantes</h2>
+<div class="testimonios-cards">
+<div class="tcard">
+<div class="stars">★★★★★</div>
+<p>"El mejor curso de JavaScript que he tomado. Claro, conciso y con los mejores proyectos."</p>
+<cite>- Laura D. (Desarrolladora)</cite>
+</div>
+<div class="tcard">
+<div class="stars">★★★★★</div>
+<p>"Increíble el nivel de detalle. Pasé de principiante a desarrollador en 3 meses."</p>
+<cite>- Miguel R. (Estudiante)</cite>
+</div>
+<div class="tcard">
+<div class="stars">★★★★★</div>
+<p>"El soporte es excelente. Siempre hay alguien disponible para ayudar."</p>
+<cite>- Carolina G. (Freelancer)</cite>
+</div>
+<div class="tcard">
+<div class="stars">★★★★★</div>
+<p>"Mejor inversión para mi carrera. El certificado en mi LinkedIn cambió todo."</p>
+<cite>- Pablo M. (Tech Lead)</cite>
+</div>
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" data-aos="fade-up">
+<h3>📧 Nuevos Cursos Cada Mes</h3>
+<p>Suscríbete para enterarte de nuevos cursos y descuentos exclusivos</p>
+<form id="newsletter-form">
+<input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required>
+<button type="submit" class="btn-primary">Suscribirse</button>
+</form>
+</section>
+
+</main>
+
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="contacto.html">Soporte</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+<button id="scroll-to-top" class="btn-secondary" aria-label="Volver arriba">
+<i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/firebase-operations.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+// Estilos para sección de cursos
+const style = document.createElement('style');
+style.textContent = `
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.stat h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.curso-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.curso-header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 120px;
+}
+
+.curso-nivel {
+  background: rgba(255,255,255,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.curso-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-body h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.curso-descripcion {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.curso-detalles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(0,123,255,0.05);
+  border-radius: 8px;
+}
+
+.detalle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.detalle i {
+  color: var(--primary-color);
+}
+
+.curso-temario {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(0,0,0,0.02);
+  border-radius: 8px;
+}
+
+.curso-temario strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.curso-temario ul {
+  list-style: none;
+  padding: 0;
+}
+
+.curso-temario li {
+  padding: 0.25rem 0;
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+.curso-precio {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.curso-precio .precio {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.curso-precio .original {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+  font-size: 1rem;
+}
+
+.curso-card .btn-primary,
+.curso-card .btn-secondary {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.rutas-section {
+  padding: 3rem 2rem;
+  background: rgba(0,123,255,0.05);
+  border-radius: 10px;
+  margin: 2rem 0;
+}
+
+.rutas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.ruta-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow);
+}
+
+.ruta-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.ruta-card ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.ruta-card li {
+  margin: 0.5rem 0;
+  color: var(--text-color);
+}
+
+.beneficios-cursos {
+  padding: 3rem 2rem;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.beneficio {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.beneficio i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.beneficio h4 {
+  color: var(--text-color);
+  margin: 0.5rem 0;
+}
+
+.beneficio p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+.testimonios-cursos {
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, transparent, rgba(0,123,255,0.05));
+}
+
+.testimonios-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tcard {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--primary-color);
+}
+
+.stars {
+  color: #FFD700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tcard p {
+  color: var(--text-color);
+  font-style: italic;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.tcard cite {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 1rem;
+  }
+  
+  .cursos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .curso-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+`;
+document.head.appendChild(style);
+
+AOS.init({ duration: 1000, once: true });
+console.log('✅ Página Cursos Inicializada');
+</script>
+
+</body>
+</html>

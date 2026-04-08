@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Página principal de Mi Empresa, ofreciendo servicios profesionales de diseño web y desarrollo.">
+<meta name="keywords" content="empresa, servicios, diseño web, desarrollo, consultoría">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Mi Empresa - Servicios Profesionales">
+<meta property="og:description" content="Ofrecemos diseño web, desarrollo y consultoría de alta calidad.">
+<meta property="og:image" content="https://picsum.photos/1200/630">
+<title>Inicio - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="tienda.html"><i class="fas fa-shopping-bag"></i> Tienda</a>
+<a class="protected" href="cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+<a class="protected" href="membresias.html"><i class="fas fa-crown"></i> Membresías</a>
+<a class="protected" href="productos.html"><i class="fas fa-box"></i> Productos</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+<a class="protected" href="galeria.html"><i class="fas fa-images"></i> Galería</a>
+<a class="protected" href="acerca.html"><i class="fas fa-info-circle"></i> Acerca</a>
+<a class="protected" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+<a class="protected" href="eventos.html"><i class="fas fa-calendar-alt"></i> Eventos</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="cart-btn" class="btn-secondary" onclick="Cart.openCartModal()" style="position:relative;margin-right:0.5rem;"><i class="fas fa-shopping-cart"></i> Carrito<span id="cart-count" style="position:absolute;top:-8px;right:-8px;background:#FF6B6B;color:white;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:bold;">0</span></button>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+<main>
+<section class="hero" style="background-image: url('https://picsum.photos/1920/1080'); background-size: cover; background-position: center;">
+<div class="hero-content">
+<h2>Bienvenido a Mi Empresa</h2>
+<p>Soluciones profesionales en diseño y desarrollo web.</p>
+<button id="btn-auth" class="btn-primary tooltip">Comenzar<span class="tooltiptext">Inicia sesión o regístrate</span></button>
+</div>
+</section>
+
+<!-- Modal de Autenticación -->
+<div id="auth-modal" class="modal auth-modal">
+  <div class="auth-modal-content">
+    <span id="auth-close" class="close" aria-label="Cerrar">&times;</span>
+    <div class="auth-tabs">
+      <button id="tab-login" class="active">Iniciar Sesión</button>
+      <button id="tab-register">Registrarse</button>
+    </div>
+    <div id="login-form" class="auth-form active">
+      <h3>Iniciar Sesión</h3>
+      <input id="login-email" type="email" placeholder="Email" required>
+      <input id="login-password" type="password" placeholder="Contraseña" required>
+      <button id="login-submit" class="btn-primary">Entrar</button>
+    </div>
+    <div id="register-form" class="auth-form">
+      <h3>Crear Cuenta</h3>
+      <input id="reg-name" type="text" placeholder="Nombre completo" required>
+      <input id="reg-email" type="email" placeholder="Email" required>
+      <input id="reg-password" type="password" placeholder="Contraseña" required>
+      <button id="register-submit" class="btn-primary">Registrarse</button>
+    </div>
+  </div>
+</div>
+<section class="about fade-in" data-aos="fade-up">
+<h2>Sobre Nosotros</h2>
+<p>Somos una empresa dedicada a ofrecer servicios de alta calidad en diseño web, desarrollo de aplicaciones y consultoría tecnológica. Nuestro equipo de expertos está comprometido con la innovación y la satisfacción del cliente.</p>
+</section>
+<section class="services slide-in-left" data-aos="fade-right">
+<h2>Servicios Destacados</h2>
+<div class="services-grid">
+<div class="card">
+<i class="fas fa-code fa-3x"></i>
+<h3>Diseño Web</h3>
+<p>Creación de sitios web atractivos y funcionales.</p>
+</div>
+<div class="card">
+<i class="fas fa-laptop-code fa-3x"></i>
+<h3>Desarrollo</h3>
+<p>Desarrollo de aplicaciones personalizadas.</p>
+</div>
+<div class="card">
+<i class="fas fa-users fa-3x"></i>
+<h3>Consultoría</h3>
+<p>Asesoramiento experto en tecnología.</p>
+</div>
+</div>
+</section>
+<section class="testimonials slide-in-right" data-aos="fade-left">
+<h2>Testimonios</h2>
+<div class="testimonial-slider">
+<div class="testimonial active">
+<p>"Excelente servicio, muy profesionales."</p>
+<cite>- Cliente Satisfecho 1</cite>
+</div>
+<div class="testimonial">
+<p>"Recomiendo ampliamente sus servicios."</p>
+<cite>- Cliente Satisfecho 2</cite>
+</div>
+<div class="testimonial">
+<p>"Innovadores y eficientes en todo momento."</p>
+<cite>- Cliente Satisfecho 3</cite>
+</div>
+</div>
+<button id="prev-testimonial">‹</button>
+<button id="next-testimonial">›</button>
+</section>
+
+<!-- 🛒 TIENDA - PRODUCTOS PARA VENDER -->
+<section class="tienda-section" data-aos="fade-up">
+<h2>🛍️ Nuestra Tienda</h2>
+<p class="tienda-subtitle">Productos y servicios profesionales</p>
+
+<div class="productos-grid">
+
+<!-- PRODUCTO 1: PAQUETE BÁSICO -->
+<div class="producto-card" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-globe fa-4x"></i>
+</div>
+<div class="producto-info">
+<h3>Paquete Básico Web</h3>
+<p class="producto-descripcion">Sitio web profesional con 5 páginas, responsivo y optimizado para SEO.</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>✅ 5 páginas incluidas</li>
+<li>✅ Diseño responsivo</li>
+<li>✅ SEO básico</li>
+<li>✅ Formulario de contacto</li>
+<li>✅ 1 año hosting</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$499.99</span>
+<span class="original-precio">$699.99</span>
+<span class="descuento">-29%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Paquete Básico Web', 499.99); Notifications.success('¡Agregado al carrito!')">
+🛒 Agregar al Carrito
+</button>
+<button class="btn-secondary" onclick="ProductDetails.show('basico')">📋 Ver Detalles</button>
+</div>
+</div>
+
+<!-- PRODUCTO 2: PAQUETE PROFESIONAL -->
+<div class="producto-card" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-rocket fa-4x" style="color: #FF6B6B;"></i>
+</div>
+<div class="producto-info">
+<h3>Paquete Profesional</h3>
+<p class="producto-descripcion">Tienda online completa con carrito, pagos y panel de administración.</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>✅ Hasta 50 productos</li>
+<li>✅ Sistema de carrito</li>
+<li>✅ Pagos con Stripe</li>
+<li>✅ Panel admin</li>
+<li>✅ 2 años hosting</li>
+<li>✅ Email profesional</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$1,299.99</span>
+<span class="descuento2">POPULAR</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Paquete Profesional', 1299.99); Notifications.success('¡Agregado al carrito!')">
+🛒 Agregar al Carrito
+</button>
+<button class="btn-secondary" onclick="ProductDetails.show('profesional')">📋 Ver Detalles</button>
+</div>
+</div>
+
+<!-- PRODUCTO 3: PAQUETE PREMIUM -->
+<div class="producto-card" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-crown fa-4x" style="color: #FFD700;"></i>
+</div>
+<div class="producto-info">
+<h3>Paquete Premium Enterprise</h3>
+<p class="producto-descripcion">Solución empresarial completa con API, integraciones y soporte 24/7.</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>✅ Productos ilimitados</li>
+<li>✅ API personalizada</li>
+<li>✅ Integraciones avanzadas</li>
+<li>✅ Soporte 24/7</li>
+<li>✅ 5 años hosting</li>
+<li>✅ Consultoría dedicada</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$4,999.99</span>
+<span class="original-precio">$6,999.99</span>
+<span class="descuento">-29%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Paquete Premium Enterprise', 4999.99); Notifications.success('¡Agregado al carrito!')">
+🛒 Agregar al Carrito
+</button>
+<button class="btn-secondary" onclick="ProductDetails.show('premium')">📋 Ver Detalles</button>
+</div>
+</div>
+
+<!-- PRODUCTO 4: CURSO ONLINE -->
+<div class="producto-card" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-book fa-4x" style="color: #4ECDC4;"></i>
+</div>
+<div class="producto-info">
+<h3>Curso: Web Avanzado</h3>
+<p class="producto-descripcion">Aprende desarrollo web moderno en 12 módulos prácticos con proyectos reales.</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>✅ 12 módulos</li>
+<li>✅ 60+ horas video</li>
+<li>✅ Proyectos prácticos</li>
+<li>✅ Certificado final</li>
+<li>✅ Acceso de por vida</li>
+<li>✅ Comunidad privada</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$199.99</span>
+<span class="original-precio">$399.99</span>
+<span class="descuento">-50%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Curso: Web Avanzado', 199.99); Notifications.success('¡Agregado al carrito!')">
+🛒 Agregar al Carrito
+</button>
+<button class="btn-secondary" onclick="ProductDetails.show('curso')">📋 Ver Detalles</button>
+</div>
+</div>
+
+<!-- PRODUCTO 5: CONSULTORÍA -->
+<div class="producto-card" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-headset fa-4x" style="color: #95E1D3;"></i>
+</div>
+<div class="producto-info">
+<h3>Sesión de Consultoría</h3>
+<p class="producto-descripcion">Sesión personalizada de 1 hora con nuestros expertos en tecnología.</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>✅ Sesión de 60 min</li>
+<li>✅ Experto dedicado</li>
+<li>✅ Videoconferencia</li>
+<li>✅ Plan de acción</li>
+<li>✅ Grabación incluida</li>
+<li>✅ Seguimiento por email</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$99.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Sesión de Consultoría', 99.99); Notifications.success('¡Agregado al carrito!')">
+🛒 Agregar al Carrito
+</button>
+<button class="btn-secondary" onclick="ProductDetails.show('consultoria')">📋 Ver Detalles</button>
+</div>
+</div>
+
+<!-- PRODUCTO 6: SOPORTE ANUAL -->
+<div class="producto-card" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-shield-alt fa-4x" style="color: #FFE66D;"></i>
+</div>
+<div class="producto-info">
+<h3>Plan de Soporte Anual</h3>
+<p class="producto-descripcion">Mantenimiento, actualizaciones y soporte técnico durante todo el año.</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>✅ Mantenimiento mensual</li>
+<li>✅ Actualizaciones ilimitadas</li>
+<li>✅ Respuesta en 24h</li>
+<li>✅ Seguridad reforzada</li>
+<li>✅ Backups automáticos</li>
+<li>✅ Monitoreo 24/7</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$599.99</span>
+<span class="original-precio">$799.99</span>
+<span class="descuento">-25%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Plan de Soporte Anual', 599.99); Notifications.success('¡Agregado al carrito!')">
+🛒 Agregar al Carrito
+</button>
+<button class="btn-secondary" onclick="ProductDetails.show('soporte')">📋 Ver Detalles</button>
+</div>
+</div>
+
+</div>
+
+<!-- Sección de promesa de valor -->
+<div class="tienda-beneficios" data-aos="fade-up">
+<div class="beneficio">
+<i class="fas fa-check-circle"></i>
+<h4>Garantía de Satisfacción</h4>
+<p>30 días de garantía dinero de vuelta</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-lock"></i>
+<h4>Pago Seguro</h4>
+<p>Con encriptación SSL de 256 bits</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-headset"></i>
+<h4>Soporte 24/7</h4>
+<p>Chat, email y teléfono disponibles</p>
+</div>
+<div class="beneficio">
+<i class="fas fa-shipping-fast"></i>
+<h4>Entrega Rápida</h4>
+<p>Acceso inmediato a productos digitales</p>
+</div>
+</div>
+
+</section>
+
+<!-- 🎉 SECCIÓN PROMOCIONAL DE EVENTOS -->
+<section class="eventos-promo-section" data-aos="fade-up">
+<div class="promo-content">
+<h2>📅 Gestiona tus Eventos</h2>
+<p>Crea eventos profesionales, invita a tu comunidad y recibe reseñas detalladas de tus clientes.</p>
+<a href="eventos.html" class="btn-primary" style="display: inline-block; margin-top: 1rem;">Ver Eventos <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="promo-icon">
+<i class="fas fa-calendar-alt fa-4x"></i>
+</div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section" data-aos="fade-up">
+<h3>📩 Suscríbete a Nuestro Newsletter</h3>
+<p>Recibe las últimas novedades, consejos y ofertas especiales directamente en tu correo</p>
+<form id="newsletter-form">
+<input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required>
+<button type="submit" class="btn-primary">Suscribirse</button>
+</form>
+</section>
+
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="terminos.html">Aviso Legal</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<!-- 🔥 Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Firebase Configuration -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Firebase Operations -->
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Application -->
+<script src="js/script.js"></script>
+</body>
+</html>

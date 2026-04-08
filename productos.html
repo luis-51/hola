@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Catálogo de Productos - Recursos digitales y plantillas profesionales">
+<meta name="keywords" content="productos, plantillas, recursos, descargas, digitales">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Productos - Mi Empresa">
+<meta property="og:description" content="Descarga plantillas, recursos y herramientas profesionales">
+<meta property="og:image" content="https://picsum.photos/1200/630">
+<title>Productos - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="tienda.html"><i class="fas fa-shopping-bag"></i> Tienda</a>
+<a class="protected" href="cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+<a class="protected" href="membresias.html"><i class="fas fa-crown"></i> Membresías</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+
+<main>
+<section class="hero" style="background-image: url('https://picsum.photos/1920/1080?random=5'); background-size: cover; background-position: center;">
+<div class="hero-content">
+<h2>🎁 Recursos & Productos Digitales</h2>
+<p>Plantillas, herramientas y recursos profesionales para tu negocio</p>
+<button class="btn-primary" onclick="Chat.openChat()"><i class="fas fa-comments"></i> Necesito ayuda</button>
+</div>
+</section>
+
+<!-- FILTROS -->
+<section class="filtros-productos" data-aos="fade-down">
+<h3>🔍 Filtrar Productos</h3>
+<div class="filtros-menu">
+<button class="btn-secondary" onclick="filterProducts('all')">Todos</button>
+<button class="btn-secondary" onclick="filterProducts('templates')">Plantillas</button>
+<button class="btn-secondary" onclick="filterProducts('herramientas')">Herramientas</button>
+<button class="btn-secondary" onclick="filterProducts('recursos')">Recursos</button>
+</div>
+</section>
+
+<!-- CATÁLOGO DE PRODUCTOS -->
+<section class="productos-catalogo" data-aos="fade-up">
+<h2>Catálogo Completo</h2>
+
+<div class="catalogo-grid" id="catalogo-productos">
+
+<!-- PRODUCTO 1: TEMPLATES HTML -->
+<div class="producto-item" data-categoria="templates" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-code fa-3x"></i>
+<span class="etiqueta">Template</span>
+</div>
+<div class="producto-body">
+<h3>10 Templates HTML5</h3>
+<p class="descripcion">10 plantillas HTML5 profesionales. Listas para usar.</p>
+<p class="specs">
+<i class="fas fa-file"></i> 10 archivos |
+<i class="fas fa-mobile"></i> Responsivo |
+<i class="fas fa-star"></i> 4.8★
+</p>
+<div class="precio-item">
+<span class="precio">$79.99</span>
+<span class="original">$149.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('10 Templates HTML5', 79.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 2: DASHBOARD ADMIN -->
+<div class="producto-item" data-categoria="templates" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-chart-line fa-3x"></i>
+<span class="etiqueta">Template</span>
+</div>
+<div class="producto-body">
+<h3>Dashboard Admin Bootstrap</h3>
+<p class="descripcion">Panel administrativo completamente funcional con gráficos.</p>
+<p class="specs">
+<i class="fas fa-layers"></i> 15 páginas |
+<i class="fas fa-mobile"></i> Responsivo |
+<i class="fas fa-star"></i> 4.9★
+</p>
+<div class="precio-item">
+<span class="precio">$49.99</span>
+<span class="original">$99.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Dashboard Admin Bootstrap', 49.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 3: FIGMA UI KIT -->
+<div class="producto-item" data-categoria="recursos" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-palette fa-3x"></i>
+<span class="etiqueta">Recurso</span>
+</div>
+<div class="producto-body">
+<h3>Figma UI Kit Pro</h3>
+<p class="descripcion">Kit completo con 500+ componentes reutilizables para Figma.</p>
+<p class="specs">
+<i class="fas fa-cube"></i> 500+ componentes |
+<i class="fas fa-layout"></i> 50+ layouts |
+<i class="fas fa-star"></i> 5.0★
+</p>
+<div class="precio-item">
+<span class="precio">$69.99</span>
+<span class="original">$149.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Figma UI Kit Pro', 69.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 4: PORTFOLIO TEMPLATE -->
+<div class="producto-item" data-categoria="templates" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-briefcase fa-3x"></i>
+<span class="etiqueta">Template</span>
+</div>
+<div class="producto-body">
+<h3>Portfolio Web Template</h3>
+<p class="descripcion">Plantilla profesional para porfolios de diseñadores y developers.</p>
+<p class="specs">
+<i class="fas fa-file"></i> 8 secciones |
+<i class="fas fa-mobile"></i> Responsivo |
+<i class="fas fa-star"></i> 4.7★
+</p>
+<div class="precio-item">
+<span class="precio">$39.99</span>
+<span class="original">$79.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Portfolio Web Template', 39.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 5: ICONS PACK -->
+<div class="producto-item" data-categoria="recursos" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-icons fa-3x"></i>
+<span class="etiqueta">Recurso</span>
+</div>
+<div class="producto-body">
+<h3>Icon Pack Professional</h3>
+<p class="descripcion">1000+ iconos en múltiples formatos (SVG, PNG, PDF).</p>
+<p class="specs">
+<i class="fas fa-icons"></i> 1000+ iconos |
+<i class="fas fa-file-download"></i> 5 formatos |
+<i class="fas fa-star"></i> 4.8★
+</p>
+<div class="precio-item">
+<span class="precio">$24.99</span>
+<span class="original">$49.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Icon Pack Professional', 24.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 6: EMAIL TEMPLATES -->
+<div class="producto-item" data-categoria="templates" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-envelope fa-3x"></i>
+<span class="etiqueta">Template</span>
+</div>
+<div class="producto-body">
+<h3>Email Marketing Templates</h3>
+<p class="descripcion">20 plantillas responsivas para email marketing. Listos para usar.</p>
+<p class="specs">
+<i class="fas fa-file"></i> 20 plantillas |
+<i class="fas fa-mobile"></i> Responsive |
+<i class="fas fa-star"></i> 4.9★
+</p>
+<div class="precio-item">
+<span class="precio">$44.99</span>
+<span class="original">$89.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Email Marketing Templates', 44.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 7: FONT COLLECTION -->
+<div class="producto-item" data-categoria="recursos" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-font fa-3x"></i>
+<span class="etiqueta">Recurso</span>
+</div>
+<div class="producto-body">
+<h3>Fuentes Web Premium</h3>
+<p class="descripcion">50 fuentes tipográficas premium con licencia comercial.</p>
+<p class="specs">
+<i class="fas fa-font"></i> 50 fuentes |
+<i class="fas fa-file-download"></i> Descargables |
+<i class="fas fa-star"></i> 4.6★
+</p>
+<div class="precio-item">
+<span class="precio">$34.99</span>
+<span class="original">$69.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Fuentes Web Premium', 34.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 8: WORDPRESS THEME -->
+<div class="producto-item" data-categoria="templates" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-wordpress-simple fa-3x"></i>
+<span class="etiqueta">Theme</span>
+</div>
+<div class="producto-body">
+<h3>WordPress Theme Pro</h3>
+<p class="descripcion">Tema WordPress completo con constructor visual de páginas.</p>
+<p class="specs">
+<i class="fas fa-plug"></i> Plugins incluidos |
+<i class="fas fa-mobile"></i> 100% Responsivo |
+<i class="fas fa-star"></i> 5.0★
+</p>
+<div class="precio-item">
+<span class="precio">$59.99</span>
+<span class="original">$119.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('WordPress Theme Pro', 59.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 9: PRESENTATION TEMPLATES -->
+<div class="producto-item" data-categoria="recursos" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-presentation fa-3x"></i>
+<span class="etiqueta">Recurso</span>
+</div>
+<div class="producto-body">
+<h3>Presentation Templates (Keynote)</h3>
+<p class="descripcion">15 plantillas profesionales para presentaciones en Keynote.</p>
+<p class="specs">
+<i class="fas fa-slide"></i> 15 plantillas |
+<i class="fas fa-apple"></i> Keynote |
+<i class="fas fa-star"></i> 4.8★
+</p>
+<div class="precio-item">
+<span class="precio">$29.99</span>
+<span class="original">$59.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Presentation Templates', 29.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 10: SOCIAL MEDIA PACK -->
+<div class="producto-item" data-categoria="recursos" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-share-alt fa-3x"></i>
+<span class="etiqueta">Recurso</span>
+</div>
+<div class="producto-body">
+<h3>Social Media Graphics Pack</h3>
+<p class="descripcion">100+ gráficos para redes sociales. Editables en Canva.</p>
+<p class="specs">
+<i class="fas fa-image"></i> 100+ gráficos |
+<i class="fas fa-canva"></i> Canva incluido |
+<i class="fas fa-star"></i> 4.9★
+</p>
+<div class="precio-item">
+<span class="precio">$34.99</span>
+<span class="original">$69.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Social Media Graphics', 34.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 11: BUSINESS CARD TEMPLATES -->
+<div class="producto-item" data-categoria="templates" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-id-card fa-3x"></i>
+<span class="etiqueta">Template</span>
+</div>
+<div class="producto-body">
+<h3>Business Card Templates</h3>
+<p class="descripcion">25 diseños profesionales de tarjetas de negocio. Listos para imprimir.</p>
+<p class="specs">
+<i class="fas fa-file"></i> 25 diseños |
+<i class="fas fa-printer"></i> Print-ready |
+<i class="fas fa-star"></i> 4.7★
+</p>
+<div class="precio-item">
+<span class="precio">$19.99</span>
+<span class="original">$39.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Business Card Templates', 19.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+<!-- PRODUCTO 12: CODE SNIPPETS LIBRARY -->
+<div class="producto-item" data-categoria="herramientas" data-aos="zoom-in">
+<div class="producto-header">
+<i class="fas fa-terminal fa-3x"></i>
+<span class="etiqueta">Herramienta</span>
+</div>
+<div class="producto-body">
+<h3>Code Snippets Library</h3>
+<p class="descripcion">500+ snippets de código listos para copiar y pegar.</p>
+<p class="specs">
+<i class="fas fa-code"></i> 500+ snippets |
+<i class="fas fa-languages"></i> 10 lenguajes |
+<i class="fas fa-star"></i> 5.0★
+</p>
+<div class="precio-item">
+<span class="precio">$39.99</span>
+<span class="original">$79.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Code Snippets Library', 39.99); Notifications.success('¡Agregado!')">
+Descargar Ahora
+</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- OFERTA ESPECIAL: MEGA BUNDLE -->
+<section class="megabundle-section" data-aos="fade-up">
+<h2>🎁 Mega Bundle - Ahorra 60%</h2>
+<p>Todos nuestros productos en un mega paquete</p>
+<div class="bundle-card">
+<div class="bundle-content">
+<h3>Pack Completo de Recursos Premium</h3>
+<p>Incluye:</p>
+<ul class="bundle-items">
+<li>✅ Todos los templates (10+)</li>
+<li>✅ Todos los recursos (iconos, fuentes, gráficos)</li>
+<li>✅ 500+ snippets de código</li>
+<li>✅ Actualizaciones de por vida</li>
+<li>✅ Soporte prioritario</li>
+<li>✅ Licencia comercial para todo</li>
+</ul>
+</div>
+<div class="bundle-precio">
+<p class="ahorro">Valor normal: $1,199.00</p>
+<p class="precio-mega">$399.99</p>
+<p class="descuento-mega">Ahorras 66%</p>
+<button class="btn-primary btn-mega" onclick="quickAddToCart('Mega Bundle Premium', 399.99); Notifications.success('¡Mega Bundle agregado al carrito!')">
+Obtener Mega Bundle
+</button>
+</div>
+</section>
+
+<!-- GARANTÍA -->
+<section class="garantia-productos" data-aos="fade-up">
+<h2>✅ Garantía 100% Satisfacción</h2>
+<div class="garantias-grid">
+<div class="garantia-item">
+<i class="fas fa-undo"></i>
+<h4>30 Días Dinero de Vuelta</h4>
+<p>Si no estás satisfecho, reembolso completo</p>
+</div>
+<div class="garantia-item">
+<i class="fas fa-sync-alt"></i>
+<h4>Actualizaciones Gratis</h4>
+<p>Recibe nuevas versiones sin costo</p>
+</div>
+<div class="garantia-item">
+<i class="fas fa-lock"></i>
+<h4>Descarga Segura</h4>
+<p>100% virus-free, escaneado diariamente</p>
+</div>
+<div class="garantia-item">
+<i class="fas fa-headset"></i>
+<h4>Soporte 24/7</h4>
+<p>Chat o email siempre disponibles</p>
+</div>
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" data-aos="fade-up">
+<h3>📧 Nuevos Productos Semanales</h3>
+<p>Suscríbete para enterarte de nuevos recursos y ofertas</p>
+<form id="newsletter-form">
+<input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required>
+<button type="submit" class="btn-primary">Suscribirse</button>
+</form>
+</section>
+
+</main>
+
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="contacto.html">Soporte</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+<button id="scroll-to-top" class="btn-secondary" aria-label="Volver arriba">
+<i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/firebase-operations.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+// Estilos para página de productos
+const style = document.createElement('style');
+style.textContent = `
+.filtros-productos {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(0,123,255,0.05);
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.filtros-menu {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.productos-catalogo {
+  padding: 3rem 2rem;
+}
+
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.producto-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.producto-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.producto-header i {
+  font-size: 3rem;
+}
+
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255,255,255,0.3);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.producto-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-body h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.descripcion {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.specs {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.specs i {
+  color: var(--primary-color);
+}
+
+.precio-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.precio-item .precio {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.precio-item .original {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+}
+
+.producto-item .btn-primary {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.megabundle-section {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #FF6B6B, #FF5252);
+  border-radius: 10px;
+  margin: 3rem 0;
+  color: white;
+}
+
+.bundle-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.bundle-content h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.bundle-items {
+  list-style: none;
+  padding: 0;
+}
+
+.bundle-items li {
+  padding: 0.5rem 0;
+  color: rgba(255,255,255,0.95);
+  font-size: 0.95rem;
+}
+
+.bundle-items li::before {
+  content: '✅ ';
+  font-weight: bold;
+}
+
+.bundle-precio {
+  text-align: center;
+}
+
+.ahorro {
+  color: rgba(255,255,255,0.8);
+  text-decoration: line-through;
+  margin-bottom: 0.5rem;
+}
+
+.precio-mega {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.descuento-mega {
+  background: rgba(0,0,0,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #FFD700;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.btn-mega {
+  width: 100%;
+  padding: 1rem !important;
+  font-size: 1.1rem !important;
+  background: white !important;
+  color: #FF6B6B !important;
+  font-weight: bold !important;
+}
+
+.btn-mega:hover {
+  background: #FFD700 !important;
+}
+
+.garantia-productos {
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, rgba(0,123,255,0.05), transparent);
+}
+
+.garantias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.garantia-item {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.garantia-item i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.garantia-item h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.garantia-item p {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .bundle-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .filtros-menu {
+    gap: 0.5rem;
+  }
+}
+`;
+document.head.appendChild(style);
+
+// Filtrado de productos
+function filterProducts(categoria) {
+  const items = document.querySelectorAll('.producto-item');
+  
+  items.forEach(item => {
+    if (categoria === 'all') {
+      item.style.display = 'block';
+    } else {
+      const itemCategoria = item.getAttribute('data-categoria');
+      item.style.display = itemCategoria === categoria ? 'block' : 'none';
+    }
+  });
+  
+  if (categoria !== 'all') {
+    Notifications.info(`Mostrando: ${categoria}`);
+  } else {
+    Notifications.info('Mostrando todos los productos');
+  }
+}
+
+AOS.init({ duration: 1000, once: true });
+console.log('✅ Página Productos Inicializada');
+</script>
+
+</body>
+</html>

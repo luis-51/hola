@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Galería de imágenes de nuestros proyectos en Mi Empresa.">
+<meta name="keywords" content="galería, proyectos, imágenes, diseño web, desarrollo">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="galeria.html"><i class="fas fa-images"></i> Galería</a>
+<a class="protected" href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+<main>
+<section class="galeria-section">
+<h2>Nuestros Proyectos</h2>
+<p>Explora algunos de nuestros trabajos más destacados.</p>
+<div class="galeria">
+<button id="prev" aria-label="Imagen anterior">‹</button>
+<div class="carousel">
+<img src="https://picsum.photos/400/300?random=1" alt="Proyecto 1" loading="lazy">
+<img src="https://picsum.photos/400/300?random=2" alt="Proyecto 2" loading="lazy">
+<img src="https://picsum.photos/400/300?random=3" alt="Proyecto 3" loading="lazy">
+<img src="https://picsum.photos/400/300?random=4" alt="Proyecto 4" loading="lazy">
+<img src="https://picsum.photos/400/300?random=5" alt="Proyecto 5" loading="lazy">
+</div>
+<button id="next" aria-label="Imagen siguiente">›</button>
+</div>
+<div class="galeria-grid">
+<img src="https://picsum.photos/300/200?random=6" alt="Proyecto 6" loading="lazy">
+<img src="https://picsum.photos/300/200?random=7" alt="Proyecto 7" loading="lazy">
+<img src="https://picsum.photos/300/200?random=8" alt="Proyecto 8" loading="lazy">
+<img src="https://picsum.photos/300/200?random=9" alt="Proyecto 9" loading="lazy">
+</div>
+</section>
+<div id="modal" class="modal">
+<span id="close" aria-label="Cerrar modal">&times;</span>
+<img id="modal-img" src="" alt="Imagen ampliada">
+</div>
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="terminos.html">Aviso Legal</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<!-- 🔥 Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Firebase Configuration -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Firebase Operations -->
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Application -->
+<script src="js/script.js"></script>
+</body>
+</html>

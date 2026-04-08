@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Gestiona eventos, crea nuevos eventos y participa en reseñas de nuestra comunidad.">
+<meta name="keywords" content="eventos, conferencias, talleres, webinars, reseñas, comunidad">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Eventos - Mi Empresa">
+<meta property="og:description" content="Descubre y crea eventos profesionales con nuestro sistema de reseñas.">
+<meta property="og:image" content="https://picsum.photos/1200/630">
+<title>Eventos - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="tienda.html"><i class="fas fa-shopping-bag"></i> Tienda</a>
+<a class="protected" href="cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+<a class="protected" href="membresias.html"><i class="fas fa-crown"></i> Membresías</a>
+<a class="protected" href="productos.html"><i class="fas fa-box"></i> Productos</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="blog.html"><i class="fas fa-newspaper"></i> Blog</a>
+<a class="protected" href="galeria.html"><i class="fas fa-images"></i> Galería</a>
+<a class="protected" href="acerca.html"><i class="fas fa-info-circle"></i> Acerca</a>
+<a class="protected" href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+<main>
+<section class="hero" style="background-image: url('https://picsum.photos/1920/1080?random=2'); background-size: cover; background-position: center;">
+<div class="hero-content">
+<h2>Gestiona tus Eventos</h2>
+<p>Crea eventos, invita a tu comunidad y recibe reseñas valiosas.</p>
+</div>
+</section>
+
+<!-- 🎉 SECCIÓN DE EVENTOS -->
+<section class="eventos-section" data-aos="fade-up">
+<h2>📅 Crear y Gestionar Eventos</h2>
+<p class="section-subtitle">Crea eventos profesionales, invita a tus clientes y recibe reseñas detalladas</p>
+
+<div class="eventos-container">
+<!-- Formulario para crear evento -->
+<div class="crear-evento-card">
+<h3>➕ Crear Nuevo Evento</h3>
+<form id="form-evento">
+<input type="text" id="evento-nombre" placeholder="Nombre del evento" required>
+<input type="date" id="evento-fecha" required>
+<input type="time" id="evento-hora" required>
+<select id="evento-tipo" required>
+<option value="">Selecciona tipo de evento</option>
+<option value="Conferencia">Conferencia</option>
+<option value="Taller">Taller</option>
+<option value="Webinar">Webinar</option>
+<option value="Meetup">Meetup</option>
+<option value="Curso">Curso</option>
+<option value="Evento Social">Evento Social</option>
+</select>
+<textarea id="evento-descripcion" placeholder="Descripción del evento" rows="3"></textarea>
+<input type="text" id="evento-ubicacion" placeholder="Ubicación">
+<button type="submit" class="btn-primary">Crear Evento</button>
+</form>
+</div>
+
+<!-- Lista de eventos -->
+<div class="eventos-lista">
+<h3>📋 Próximos Eventos</h3>
+<div id="lista-eventos" class="eventos-grid">
+<!-- Los eventos se cargarán aquí dinámicamente -->
+<div class="evento-card">
+<div class="evento-header">
+<h4>Conferencia Tech 2026</h4>
+<span class="evento-badge">Conferencia</span>
+</div>
+<div class="evento-info">
+<p><i class="fas fa-calendar-alt"></i> 15 Abr 2026</p>
+<p><i class="fas fa-clock"></i> 14:00</p>
+<p><i class="fas fa-map-marker-alt"></i> Centro de Convenciones</p>
+</div>
+<p class="evento-descripcion">Únete a la conferencia anual de tecnología donde expertos de la industria comparten sus insights sobre el futuro del desarrollo web.</p>
+<div class="evento-stats">
+<span><i class="fas fa-users"></i> 45 asistentes</span>
+<span><i class="fas fa-star"></i> 4.8/5.0</span>
+</div>
+<button class="btn-secondary" onclick="toggleEventoReviews(this)">💬 Ver Reseñas</button>
+<div class="evento-reviews" style="display:none;">
+<div class="review-form">
+<textarea placeholder="Escribe tu reseña..."></textarea>
+<div class="rating-stars">
+<i class="fas fa-star" data-rating="1" onclick="setRating(this, 1)"></i>
+<i class="fas fa-star" data-rating="2" onclick="setRating(this, 2)"></i>
+<i class="fas fa-star" data-rating="3" onclick="setRating(this, 3)"></i>
+<i class="fas fa-star" data-rating="4" onclick="setRating(this, 4)"></i>
+<i class="fas fa-star" data-rating="5" onclick="setRating(this, 5)"></i>
+</div>
+<button class="btn-primary btn-small" onclick="submitReview(this)">Enviar Reseña</button>
+</div>
+<div class="reviews-list">
+<div class="review-item">
+<div class="review-header">
+<strong>Juan Pérez</strong>
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+</div>
+<p>"Excelente conferencia, muy informatido y bien organizado. Recomendado!"</p>
+</div>
+<div class="review-item">
+<div class="review-header">
+<strong>María García</strong>
+<div class="review-stars">⭐⭐⭐⭐</div>
+</div>
+<p>"Muy bueno, aunque podría haber más tiempo para preguntas."</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="evento-card">
+<div class="evento-header">
+<h4>Taller: React Avanzado</h4>
+<span class="evento-badge">Taller</span>
+</div>
+<div class="evento-info">
+<p><i class="fas fa-calendar-alt"></i> 22 Abr 2026</p>
+<p><i class="fas fa-clock"></i> 10:00</p>
+<p><i class="fas fa-map-marker-alt"></i> Sala Online</p>
+</div>
+<p class="evento-descripcion">Aprende técnicas avanzadas de React con hooks, context API y optimización de rendimiento. Práctico y orientado a proyectos reales.</p>
+<div class="evento-stats">
+<span><i class="fas fa-users"></i> 32 asistentes</span>
+<span><i class="fas fa-star"></i> 4.9/5.0</span>
+</div>
+<button class="btn-secondary" onclick="toggleEventoReviews(this)">💬 Ver Reseñas</button>
+<div class="evento-reviews" style="display:none;">
+<div class="review-form">
+<textarea placeholder="Escribe tu reseña..."></textarea>
+<div class="rating-stars">
+<i class="fas fa-star" data-rating="1" onclick="setRating(this, 1)"></i>
+<i class="fas fa-star" data-rating="2" onclick="setRating(this, 2)"></i>
+<i class="fas fa-star" data-rating="3" onclick="setRating(this, 3)"></i>
+<i class="fas fa-star" data-rating="4" onclick="setRating(this, 4)"></i>
+<i class="fas fa-star" data-rating="5" onclick="setRating(this, 5)"></i>
+</div>
+<button class="btn-primary btn-small" onclick="submitReview(this)">Enviar Reseña</button>
+</div>
+<div class="reviews-list">
+<div class="review-item">
+<div class="review-header">
+<strong>Carlos López</strong>
+<div class="review-stars">⭐⭐⭐⭐⭐</div>
+</div>
+<p>"Increíble, aprendí más en este taller que en tres meses de trabajo. Muy recomendado!"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="terminos.html">Aviso Legal</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<!-- 🔥 Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Firebase Configuration -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Firebase Operations -->
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Application -->
+<script src="js/script.js"></script>
+</body>
+</html>

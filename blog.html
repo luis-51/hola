@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Blog de Mi Empresa - Artículos sobre diseño web, desarrollo y tecnología.">
+<meta name="keywords" content="blog, artículos, diseño web, desarrollo, tecnología, consejos">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="galeria.html"><i class="fas fa-images"></i> Galería</a>
+<a class="protected" href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+<main>
+<section class="blog">
+<h2>Nuestro Blog</h2>
+<p>Descubre consejos, tendencias y novedades en el mundo del diseño web y desarrollo.</p>
+
+<!-- Buscador -->
+<div class="search-container">
+  <input type="text" id="blog-search" placeholder="🔍 Buscar en el blog...">
+</div>
+
+<div class="blog-posts">
+<article class="blog-post" data-aos="fade-up">
+<img src="https://picsum.photos/400/250?random=1" alt="Tendencias en Diseño Web 2026">
+<h3>Tendencias en Diseño Web para 2026</h3>
+<p>Exploramos las últimas tendencias que están revolucionando el diseño web este año...</p>
+<p class="full-content">En 2026, el diseño web se centra en la experiencia del usuario con interfaces más intuitivas, uso de IA para personalización, y diseños sostenibles. La accesibilidad es clave, con colores de alto contraste y navegación simplificada. Además, el dark mode se vuelve estándar, y las animaciones sutiles mejoran la interacción sin sobrecargar.</p>
+<button class="btn-secondary read-more-btn">Leer más</button>
+<button class="btn-small" data-favorite data-id="blog-1" data-name="Tendencias en Diseño Web"><i class="far fa-heart"></i></button>
+
+<!-- Comentarios -->
+<div id="comments-list" data-post-id="blog-1"></div>
+<form id="comment-form" data-post-id="blog-1">
+  <h4>Dejar un comentario</h4>
+  <textarea id="comment-text" placeholder="Escribe tu comentario..."></textarea>
+  <button type="submit" class="btn-primary" style="margin-top: 0.5rem;">Comentar</button>
+</form>
+</article>
+
+<article class="blog-post" data-aos="fade-up">
+<img src="https://picsum.photos/400/250?random=2" alt="Importancia del SEO">
+<h3>Por qué el SEO es Crucial para tu Negocio</h3>
+<p>Aprende cómo el posicionamiento web puede impulsar tu presencia online...</p>
+<p class="full-content">El SEO no es solo una herramienta técnica; es fundamental para la visibilidad en motores de búsqueda como Google. Mejora el tráfico orgánico, aumenta la credibilidad y convierte visitantes en clientes. Estrategias incluyen palabras clave relevantes, contenido de calidad, backlinks y optimización móvil. Sin SEO, tu sitio web puede quedar invisible en un mar de competidores.</p>
+<button class="btn-secondary read-more-btn">Leer más</button>
+<button class="btn-small" data-favorite data-id="blog-2" data-name="Por qué el SEO es Crucial"><i class="far fa-heart"></i></button>
+
+<div id="comments-list" data-post-id="blog-2"></div>
+<form id="comment-form" data-post-id="blog-2">
+  <h4>Dejar un comentario</h4>
+  <textarea id="comment-text" placeholder="Escribe tu comentario..."></textarea>
+  <button type="submit" class="btn-primary" style="margin-top: 0.5rem;">Comentar</button>
+</form>
+</article>
+
+<article class="blog-post" data-aos="fade-up">
+<img src="https://picsum.photos/400/250?random=3" alt="Desarrollo de Apps Móviles">
+<h3>Desarrollo de Aplicaciones Móviles: Guía Completa</h3>
+<p>Todo lo que necesitas saber para crear apps móviles exitosas...</p>
+<p class="full-content">Desarrollar apps móviles requiere planificación: elegir plataforma (iOS, Android o híbrida), diseño UX/UI intuitivo, y tecnologías como React Native o Flutter. Pruebas exhaustivas, seguridad de datos y monetización son esenciales. El éxito depende de resolver problemas reales de usuarios y mantener actualizaciones constantes para adaptarse a cambios en OS y tendencias.</p>
+<button class="btn-secondary read-more-btn">Leer más</button>
+<button class="btn-small" data-favorite data-id="blog-3" data-name="Desarrollo de Aplicaciones Móviles"><i class="far fa-heart"></i></button>
+
+<div id="comments-list" data-post-id="blog-3"></div>
+<form id="comment-form" data-post-id="blog-3">
+  <h4>Dejar un comentario</h4>
+  <textarea id="comment-text" placeholder="Escribe tu comentario..."></textarea>
+  <button type="submit" class="btn-primary" style="margin-top: 0.5rem;">Comentar</button>
+</form>
+</article>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="terminos.html">Aviso Legal</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<!-- 🔥 Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Firebase Configuration -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Firebase Operations -->
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Application -->
+<script src="js/script.js"></script>
+</body>
+</html>

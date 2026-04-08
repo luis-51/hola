@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Membresías y Suscripciones - Acceso ilimitado a contenidos y servicios premium">
+<meta name="keywords" content="membresía, suscripción, premium, acceso, contenidos">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Membresías - Mi Empresa">
+<meta property="og:description" content="Elige tu membresía y obtén acceso a contenidos exclusivos">
+<meta property="og:image" content="https://picsum.photos/1200/630">
+<title>Membresías - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="tienda.html"><i class="fas fa-shopping-bag"></i> Tienda</a>
+<a class="protected" href="cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+<a class="protected" href="membresias.html"><i class="fas fa-crown"></i> Membresías</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+
+<main>
+<section class="hero" style="background-image: url('https://picsum.photos/1920/1080?random=4'); background-size: cover; background-position: center;">
+<div class="hero-content">
+<h2>👑 Membresías Premium</h2>
+<p>Acceso ilimitado a cursos, contenidos exclusivos y soporte prioritario</p>
+<button class="btn-primary" onclick="Chat.openChat()"><i class="fas fa-comments"></i> ¿Cuál membresía necesitas?</button>
+</div>
+</section>
+
+<!-- TABLA COMPARATIVA -->
+<section class="planes-section" data-aos="fade-up">
+<h2>Elige tu Plan de Membresía</h2>
+<p class="planes-subtitle">Todos los planes incluyen garantía de 30 días de satisfacción</p>
+
+<div class="planes-container">
+
+<!-- PLAN BÁSICO -->
+<div class="plan-card plan-basico" data-aos="zoom-in">
+<div class="plan-badge">Popular</div>
+<h3>Plan Básico</h3>
+<p class="plan-desc">Perfecto para empezar tu aprendizaje</p>
+
+<div class="plan-precio">
+<span class="precio-grande">$9.99</span>
+<span class="precio-periodo">/mes</span>
+</div>
+
+<div class="plan-caracteristicas">
+<ul>
+<li><i class="fas fa-check"></i> 5 cursos accesibles</li>
+<li><i class="fas fa-check"></i> Certificados digitales</li>
+<li><i class="fas fa-check"></i> Soporte por email</li>
+<li><i class="fas fa-check"></i> Acceso 24/7</li>
+<li><i class="fas fa-times"></i> Sin contenidos exclusivos</li>
+<li><i class="fas fa-times"></i> Sin sesiones 1-to-1</li>
+</ul>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Membresía Básica - 1 mes', 9.99); Notifications.success('¡Suscripción agregada!')">
+Suscribirse Ahora
+</button>
+<p style="font-size: 0.8rem; color: var(--secondary-color); margin-top: 1rem;">Cancela cuando quieras</p>
+</div>
+
+<!-- PLAN PROFESIONAL -->
+<div class="plan-card plan-profesional destacado" data-aos="zoom-in">
+<div class="plan-badge destacado">✨ MÁS POPULAR</div>
+<h3>Plan Profesional</h3>
+<p class="plan-desc">Para developers y diseñadores serios</p>
+
+<div class="plan-precio">
+<span class="precio-grande">$29.99</span>
+<span class="precio-periodo">/mes</span>
+</div>
+
+<div class="plan-caracteristicas">
+<ul>
+<li><i class="fas fa-check"></i> Acceso a todos los cursos</li>
+<li><i class="fas fa-check"></i> Certificados profesionales</li>
+<li><i class="fas fa-check"></i> Soporte prioritario 24/7</li>
+<li><i class="fas fa-check"></i> Contenidos exclusivos</li>
+<li><i class="fas fa-check"></i> 1 sesión consultoría/mes</li>
+<li><i class="fas fa-times"></i> Sin descargas de proyectos</li>
+</ul>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Membresía Profesional - 1 mes', 29.99); Notifications.success('¡Suscripción agregada!')" style="background: linear-gradient(135deg, #FF6B6B, #FF5252);">
+¡Suscribirse Ahora!
+</button>
+<p style="font-size: 0.8rem; color: var(--secondary-color); margin-top: 1rem;">Más popular entre developers</p>
+</div>
+
+<!-- PLAN PREMIUM -->
+<div class="plan-card plan-premium" data-aos="zoom-in">
+<div class="plan-badge">Supremo</div>
+<h3>Plan Premium</h3>
+<p class="plan-desc">Para empresas y equipos</p>
+
+<div class="plan-precio">
+<span class="precio-grande">$99.99</span>
+<span class="precio-periodo">/mes</span>
+</div>
+
+<div class="plan-caracteristicas">
+<ul>
+<li><i class="fas fa-check"></i> TODO del Plan Profesional</li>
+<li><i class="fas fa-check"></i> 4 sesiones consultoría/mes</li>
+<li><i class="fas fa-check"></i> Proyectos descargables</li>
+<li><i class="fas fa-check"></i> Acceso API privado</li>
+<li><i class="fas fa-check"></i> Contenidos beta (antes lancen)</li>
+<li><i class="fas fa-check"></i> Soporte telefónico directo</li>
+</ul>
+</div>
+
+<button class="btn-primary" onclick="quickAddToCart('Membresía Premium - 1 mes', 99.99); Notifications.success('¡Suscripción agregada!')" style="background: linear-gradient(135deg, #FFD700, #FF8C00);">
+Suscribirse Ahora
+</button>
+<p style="font-size: 0.8rem; color: var(--secondary-color); margin-top: 1rem;">Para equipos profesionales</p>
+</div>
+
+</div>
+
+<!-- OPCIÓN DE PAGO ANUAL CON DESCUENTO -->
+<div class="pago-anual-section" data-aos="fade-up">
+<h3>💰 ¿Prefieres pagar anual? Ahorra hasta 40%</h3>
+<div class="opciones-anuales">
+<div class="opcion-anual">
+<h4>Plan Básico Anual</h4>
+<p class="precio-anual">$99.99/año</p>
+<p class="ahorro">Ahorras $19.89</p>
+<button class="btn-secondary" onclick="quickAddToCart('Membresía Básica - 1 año', 99.99); Notifications.success('¡Suscripción anual agregada!')">
+Suscribirse Anualmente
+</button>
+</div>
+<div class="opcion-anual">
+<h4>Plan Profesional Anual</h4>
+<p class="precio-anual">$299.99/año</p>
+<p class="ahorro">Ahorras $59.89</p>
+<button class="btn-secondary" onclick="quickAddToCart('Membresía Profesional - 1 año', 299.99); Notifications.success('¡Suscripción anual agregada!')">
+Suscribirse Anualmente
+</button>
+</div>
+<div class="opcion-anual">
+<h4>Plan Premium Anual</h4>
+<p class="precio-anual">$999.99/año</p>
+<p class="ahorro">Ahorras $199.89</p>
+<button class="btn-secondary" onclick="quickAddToCart('Membresía Premium - 1 año', 999.99); Notifications.success('¡Suscripción anual agregada!')">
+Suscribirse Anualmente
+</button>
+</div>
+</div>
+</section>
+
+<!-- TABLA COMPARATIVA DETALLADA -->
+<section class="comparativa-section" data-aos="fade-up">
+<h2>Comparativa Completa de Planes</h2>
+<div class="tabla-comparativa">
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Básico</th>
+<th>Profesional</th>
+<th>Premium</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cursos Disponibles</strong></td>
+<td>5 cursos</td>
+<td>✅ Todos (20+)</td>
+<td>✅ Todos + Beta</td>
+</tr>
+<tr>
+<td><strong>Actualizaciones</strong></td>
+<td>Básicas</td>
+<td>✅ Todas incluidas</td>
+<td>✅ Antes de lanzar</td>
+</tr>
+<tr>
+<td><strong>Certificados</strong></td>
+<td>Digitales</td>
+<td>✅ Profesionales</td>
+<td>✅ Premium verificados</td>
+</tr>
+<tr>
+<td><strong>Soporte</strong></td>
+<td>Email</td>
+<td>✅ Prioritario 24/7</td>
+<td>✅ Telefónico + Email</td>
+</tr>
+<tr>
+<td><strong>Sesiones Consultoría</strong></td>
+<td>-</td>
+<td>✅ 1/mes</td>
+<td>✅ 4/mes</td>
+</tr>
+<tr>
+<td><strong>Contenidos Exclusivos</strong></td>
+<td>-</td>
+<td>✅ Sí</td>
+<td>✅ Sí</td>
+</tr>
+<tr>
+<td><strong>Descarga Proyectos</strong></td>
+<td>-</td>
+<td>-</td>
+<td>✅ Sí</td>
+</tr>
+<tr>
+<td><strong>API Externo</strong></td>
+<td>-</td>
+<td>-</td>
+<td>✅ Sí</td>
+</tr>
+<tr>
+<td><strong>Comunidad Privada</strong></td>
+<td>-</td>
+<td>✅ Sí (hasta 50)</td>
+<td>✅ Sí (ilimitado)</td>
+</tr>
+<tr>
+<td><strong>Cancelación</strong></td>
+<td colspan="3" style="text-align: center; background: rgba(0,123,255,0.1);">Sin compromiso, cancela cuando quieras</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- TESTIMONIOS DE MIEMBROS -->
+<section class="testimonios-miembros" data-aos="fade-up">
+<h2>📢 Qué dicen nuestros miembros</h2>
+<div class="testimonios-grid">
+<div class="testimonio">
+<div class="testimonial-header">
+<img src="https://i.pravatar.cc/60?img=1" alt="Avatar">
+<div>
+<h4>Sofia García</h4>
+<p>Miembra desde 2 años</p>
+</div>
+</div>
+<p>"El Plan Profesional cambió mi carrera. El soporte y los cursos son increíbles."</p>
+<div class="stars">★★★★★</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonial-header">
+<img src="https://i.pravatar.cc/60?img=2" alt="Avatar">
+<div>
+<h4>Juan Rodríguez</h4>
+<p>Miembro Premium</p>
+</div>
+</div>
+<p>"Las sesiones 1-to-1 mensuales valen mucho más que el costo. Mejor inversión."</p>
+<div class="stars">★★★★★</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonial-header">
+<img src="https://i.pravatar.cc/60?img=3" alt="Avatar">
+<div>
+<h4>María López</h4>
+<p>Miembro 6 meses</p>
+</div>
+</div>
+<p>"Empecé con Básico, pasé a Profesional. Recomiendo iniciarse así. Excelente progresión."</p>
+<div class="stars">★★★★★</div>
+</div>
+</div>
+</section>
+
+<!-- BENEFICIOS DE MEMBRESIA -->
+<section class="beneficios-membresia" data-aos="fade-up">
+<h2>🎁 Bonificaciones Especiales este Mes</h2>
+<div class="bonificaciones-grid">
+<div class="bonificacion">
+<i class="fas fa-gift"></i>
+<h4>Curso GRATIS</h4>
+<p>React Avanzado ($279) cortesía por suscribirse este mes</p>
+</div>
+<div class="bonificacion">
+<i class="fas fa-book-open"></i>
+<h4>eBook Exclusivo</h4>
+<p>"10 Secretos de Developers Top" para miembros nuevos</p>
+</div>
+<div class="bonificacion">
+<i class="fas fa-users"></i>
+<h4>Comunidad Privada</h4>
+<p>Acceso a grupo de Telegram con 1000+ developers</p>
+</div>
+<div class="bonificacion">
+<i class="fas fa-star"></i>
+<h4>Prioritario</h4>
+<p>Soporte prioritario y respuesta en menos de 2 horas</p>
+</div>
+</div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section class="faq-membresias" data-aos="fade-up">
+<h2>❓ Preguntas Frecuentes</h2>
+<div class="faq-grid">
+<div class="faq-item">
+<h4>¿Puedo cambiar de plan?</h4>
+<p>Claro, en cualquier momento. Solo ingresa a tu panel de control.</p>
+</div>
+<div class="faq-item">
+<h4>¿Se renueva automáticamente?</h4>
+<p>Sí, pero puedes cancelar sin problema desde tu dashboard.</p>
+</div>
+<div class="faq-item">
+<h4>¿Qué pasa si cancelo?</h4>
+<p>Pierdes acceso a contenidos premium, pero guardas certificados.</p>
+</div>
+<div class="faq-item">
+<h4>¿Hay prueba gratuita?</h4>
+<p>Sí, 7 días gratis para nuevos miembros en Plan Profesional.</p>
+</div>
+<div class="faq-item">
+<h4>¿Métodos de pago aceptados?</h4>
+<p>Tarjeta crédito, PayPal, transferencia bancaria.</p>
+</div>
+<div class="faq-item">
+<h4>¿Descuentos para equipos?</h4>
+<p>Sí, contacta al soporte. Ofertas especiales desde 5 miembros.</p>
+</div>
+</div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" data-aos="fade-up">
+<h2>🚀 Comienza tu Viaje de Aprendizaje Hoy</h2>
+<p>Únete a 500+ developers que ya están transformando sus carreras</p>
+<button class="btn-primary btn-lg" onclick="window.scrollTo({top: document.querySelector('.planes-section').offsetTop, behavior: 'smooth'})">
+Elegir Plan Ahora
+</button>
+</section>
+
+</main>
+
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="contacto.html">Soporte</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+<button id="scroll-to-top" class="btn-secondary" aria-label="Volver arriba">
+<i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<script src="js/firebase-config.js"></script>
+<script src="js/firebase-operations.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+// Estilos para membresías
+const style = document.createElement('style');
+style.textContent = `
+.planes-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.planes-subtitle {
+  text-align: center;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.planes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.plan-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.plan-card.destacado {
+  border: 3px solid var(--primary-color);
+  transform: scale(1.05);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.plan-badge.destacado {
+  background: linear-gradient(135deg, #FF6B6B, #FF5252);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.plan-card h3 {
+  color: var(--primary-color);
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.plan-desc {
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+}
+
+.plan-precio {
+  display: flex;
+  align-items: baseline;
+  margin: 1.5rem 0;
+}
+
+.precio-grande {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.precio-periodo {
+  color: var(--secondary-color);
+  margin-left: 0.5rem;
+}
+
+.plan-caracteristicas {
+  flex: 1;
+  margin: 1.5rem 0;
+}
+
+.plan-caracteristicas ul {
+  list-style: none;
+  padding: 0;
+}
+
+.plan-caracteristicas li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+}
+
+.plan-caracteristicas i {
+  color: var(--accent-color);
+  min-width: 20px;
+}
+
+.plan-caracteristicas .fa-times {
+  color: #ccc;
+  opacity: 0.5;
+}
+
+.plan-card .btn-primary {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.pago-anual-section {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, rgba(0,123,255,0.05), rgba(0,123,255,0.1));
+  border-radius: 10px;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.opciones-anuales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.opcion-anual {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.opcion-anual h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.precio-anual {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 0.5rem 0;
+}
+
+.ahorro {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.comparativa-section {
+  padding: 3rem 2rem;
+  margin: 3rem 0;
+}
+
+.tabla-comparativa {
+  overflow-x: auto;
+  margin-top: 2rem;
+}
+
+.tabla-comparativa table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.tabla-comparativa th {
+  background: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  text-align: left;
+}
+
+.tabla-comparativa td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  color: var(--text-color);
+}
+
+.tabla-comparativa tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla-comparativa tbody tr:hover {
+  background: rgba(0,123,255,0.02);
+}
+
+.testimonios-miembros {
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, transparent, rgba(0,123,255,0.05));
+}
+
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonio {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary-color);
+}
+
+.testimonial-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.testimonial-header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-header h4 {
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.testimonial-header p {
+  color: var(--secondary-color);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.testimonio p {
+  color: var(--text-color);
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.stars {
+  color: #FFD700;
+  font-size: 0.9rem;
+}
+
+.beneficios-membresia {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border-radius: 10px;
+  margin: 3rem 0;
+}
+
+.bonificaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.bonificacion {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+}
+
+.bonificacion i {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bonificacion h4 {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.bonificacion p {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.9rem;
+}
+
+.faq-membresias {
+  padding: 3rem 2rem;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--primary-color);
+}
+
+.faq-item h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+}
+
+.cta-final {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #FF6B6B, #FF5252);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.cta-final h2 {
+  color: white;
+}
+
+.cta-final p {
+  color: rgba(255,255,255,0.9);
+  margin: 1rem 0 2rem;
+  font-size: 1.1rem;
+}
+
+.btn-lg {
+  padding: 1rem 3rem !important;
+  font-size: 1.1rem !important;
+}
+
+@media (max-width: 768px) {
+  .planes-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .plan-card.destacado {
+    transform: scale(1);
+  }
+  
+  .tabla-comparativa {
+    font-size: 0.85rem;
+  }
+  
+  .tabla-comparativa th,
+  .tabla-comparativa td {
+    padding: 0.75rem;
+  }
+}
+`;
+document.head.appendChild(style);
+
+AOS.init({ duration: 1000, once: true });
+console.log('✅ Página Membresías Inicializada');
+</script>
+
+</body>
+</html>

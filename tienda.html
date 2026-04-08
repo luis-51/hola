@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Tienda completa - Productos y servicios profesionales de Mi Empresa">
+<meta name="keywords" content="tienda, productos, servicios, comprar, ecommerce">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Tienda - Mi Empresa">
+<meta property="og:description" content="Explora nuestros productos y servicios profesionales">
+<meta property="og:image" content="https://picsum.photos/1200/630">
+<title>Tienda - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="tienda.html"><i class="fas fa-shopping-bag"></i> Tienda</a>
+<a class="protected" href="cursos.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+<a class="protected" href="membresias.html"><i class="fas fa-crown"></i> Membresías</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+
+<main>
+<section class="hero" style="background-image: url('https://picsum.photos/1920/1080?random=2'); background-size: cover; background-position: center;">
+<div class="hero-content">
+<h2>🛒 Nuestra Tienda Completa</h2>
+<p>Productos, servicios y soluciones profesionales para tu negocio</p>
+<button class="btn-primary" onclick="Chat.openChat()"><i class="fas fa-comments"></i> Necesito Ayuda</button>
+</div>
+</section>
+
+<!-- FILTROS Y BÚSQUEDA -->
+<section class="search-section" data-aos="fade-down">
+<div class="search-container">
+<h3>🔍 Busca Productos</h3>
+<input type="text" id="buscar-tienda" placeholder="Busca por nombre, tipo..." style="padding: 1rem; width: 100%; border: 2px solid var(--primary-color); border-radius: 8px; font-size: 1rem; margin-bottom: 1rem;">
+<div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+<button class="btn-secondary" onclick="filterByCategory('servicios')">Servicios</button>
+<button class="btn-secondary" onclick="filterByCategory('productos')">Productos</button>
+<button class="btn-secondary" onclick="filterByCategory('cursos')">Cursos</button>
+<button class="btn-secondary" onclick="filterByCategory('all')">Ver Todo</button>
+</div>
+</div>
+</section>
+
+<!-- 🛍️ TIENDA COMPLETA -->
+<section class="tienda-section" data-aos="fade-up">
+<h2>Catálogo Completo de Productos</h2>
+
+<div class="productos-grid" id="productos-container">
+
+<!-- PRODUCTO 1 -->
+<div class="producto-card" data-categoria="servicios" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-globe fa-4x"></i>
+</div>
+<div class="producto-info">
+<h3>Paquete Básico Web</h3>
+<p class="producto-descripcion">Sitio web profesional con 5 páginas, responsivo y optimizado</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>5 páginas</li>
+<li>Diseño responsivo</li>
+<li>SEO básico</li>
+<li>Formulario contacto</li>
+<li>1 año hosting</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$499.99</span>
+<span class="original-precio">$699.99</span>
+<span class="descuento">-29%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Paquete Básico Web', 499.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 2 -->
+<div class="producto-card" data-categoria="servicios" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-rocket fa-4x" style="color: #FF6B6B;"></i>
+</div>
+<div class="producto-info">
+<h3>Paquete Profesional</h3>
+<p class="producto-descripcion">Tienda online con carrito, pagos y panel de control</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>Hasta 50 productos</li>
+<li>Sistema carrito</li>
+<li>Pagos Stripe</li>
+<li>Panel admin</li>
+<li>2 años hosting</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$1,299.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Paquete Profesional', 1299.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 3 -->
+<div class="producto-card" data-categoria="servicios" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-crown fa-4x" style="color: #FFD700;"></i>
+</div>
+<div class="producto-info">
+<h3>Premium Enterprise</h3>
+<p class="producto-descripcion">Solución empresarial con API, integraciones y soporte 24/7</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>Productos ilimitados</li>
+<li>API personalizada</li>
+<li>Integraciones avanzadas</li>
+<li>Soporte 24/7</li>
+<li>5 años hosting</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$4,999.99</span>
+<span class="original-precio">$6,999.99</span>
+<span class="descuento">-29%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Premium Enterprise', 4999.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 4 -->
+<div class="producto-card" data-categoria="cursos" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-book fa-4x" style="color: #4ECDC4;"></i>
+</div>
+<div class="producto-info">
+<h3>Curso: Web Avanzado</h3>
+<p class="producto-descripcion">Aprende desarrollo web moderno en 12 módulos con proyectos</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>12 módulos</li>
+<li>60+ horas video</li>
+<li>Proyectos prácticos</li>
+<li>Certificado</li>
+<li>Acceso de por vida</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$199.99</span>
+<span class="original-precio">$399.99</span>
+<span class="descuento">-50%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Curso: Web Avanzado', 199.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 5 -->
+<div class="producto-card" data-categoria="cursos" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-laptop-code fa-4x" style="color: #95E1D3;"></i>
+</div>
+<div class="producto-info">
+<h3>Curso: JavaScript Completo</h3>
+<p class="producto-descripcion">Domina JavaScript desde cero hasta nivel avanzado</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>15 módulos</li>
+<li>80+ horas video</li>
+<li>200+ ejercicios</li>
+<li>Certificado profesional</li>
+<li>Acceso de por vida</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$249.99</span>
+<span class="original-precio">$499.99</span>
+<span class="descuento">-50%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Curso: JavaScript', 249.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 6 -->
+<div class="producto-card" data-categoria="cursos" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-palette fa-4x" style="color: #FFE66D;"></i>
+</div>
+<div class="producto-info">
+<h3>Curso: Diseño UI/UX</h3>
+<p class="producto-descripcion">Diseña interfaces profesionales con tendencias actuales</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>10 módulos</li>
+<li>40+ horas</li>
+<li>Proyectos reales</li>
+<li>Plantillas incluidas</li>
+<li>Acceso ilimitado</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$179.99</span>
+<span class="original-precio">$349.99</span>
+<span class="descuento">-48%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Curso: Diseño UI/UX', 179.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 7 -->
+<div class="producto-card" data-categoria="productos" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-headset fa-4x" style="color: #95E1D3;"></i>
+</div>
+<div class="producto-info">
+<h3>Sesión Consultoría</h3>
+<p class="producto-descripcion">Sesión personalizada de 1 hora con expertos en tecnología</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>Duración: 60 min</li>
+<li>Experto dedicado</li>
+<li>Videoconferencia</li>
+<li>Plan de acción</li>
+<li>Grabación incluida</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$99.99</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Sesión Consultoría', 99.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 8 -->
+<div class="producto-card" data-categoria="servicios" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-shield-alt fa-4x" style="color: #FFE66D;"></i>
+</div>
+<div class="producto-info">
+<h3>Plan Soporte Anual</h3>
+<p class="producto-descripcion">Mantenimiento y soporte técnico durante todo el año</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>Mantenimiento mensual</li>
+<li>Actualizaciones ilimitadas</li>
+<li>Respuesta en 24h</li>
+<li>Seguridad reforzada</li>
+<li>Backups automáticos</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$599.99</span>
+<span class="original-precio">$799.99</span>
+<span class="descuento">-25%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Plan Soporte Anual', 599.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+<!-- PRODUCTO 9 -->
+<div class="producto-card" data-categoria="productos" data-aos="zoom-in">
+<div class="producto-imagen">
+<i class="fas fa-file-download fa-4x"></i>
+</div>
+<div class="producto-info">
+<h3>Pack: 10 Templates HTML</h3>
+<p class="producto-descripcion">10 templates HTML5 profesionales listos para usar</p>
+<div class="producto-caracteristicas">
+<ul>
+<li>10 templates diferentes</li>
+<li>HTML5 + CSS3</li>
+<li>Completamente responsivos</li>
+<li>Fáciles de personalizar</li>
+<li>Licencia comercial</li>
+</ul>
+</div>
+<div class="producto-precio">
+<span class="precio">$79.99</span>
+<span class="original-precio">$149.99</span>
+<span class="descuento">-46%</span>
+</div>
+<button class="btn-primary" onclick="quickAddToCart('Pack: 10 Templates', 79.99); Notifications.success('¡Agregado!')">🛒 Agregar</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- CARRITO RESUMEN -->
+<section class="carrito-resumen" data-aos="fade-up">
+<div class="carrito-info">
+<h3>📦 Tu Carrito</h3>
+<div id="carrito-preview">
+<p>Carrito vacío</p>
+</div>
+<div style="margin-top: 1rem;">
+<p><strong>Total: </strong><span id="carrito-total">$0.00</span></p>
+<button class="btn-primary" onclick="viewCart()" style="width: 100%; margin-top: 1rem;">
+🛒 Ver Carrito Completo
+</button>
+<button class="btn-secondary" onclick="Cart.checkout(); Notifications.success('¡Pedido realizado!')" style="width: 100%; margin-top: 0.5rem;">
+✅ Ir al Checkout
+</button>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIOS DE CLIENTES -->
+<section class="testimonials-tienda" data-aos="fade-up">
+<h2>⭐ Lo que dicen nuestros clientes</h2>
+<div class="testimonios-grid">
+<div class="testimonio-card">
+<div class="stars">★★★★★</div>
+<p>"Excelente servicio, muy profesionales. Mi sitio web quedó perfecto!"</p>
+<cite>- Ana García (Cliente desde 2020)</cite>
+</div>
+<div class="testimonio-card">
+<div class="stars">★★★★★</div>
+<p>"El curso de JavaScript fue increíble, aprendí muchísimo en poco tiempo."</p>
+<cite>- Carlos López (Estudiante)</cite>
+</div>
+<div class="testimonio-card">
+<div class="stars">★★★★★</div>
+<p>"Mejor inversión que hice. El soporte 24/7 es de verdad confiable."</p>
+<cite>- María Rodríguez (Empresaria)</cite>
+</div>
+<div class="testimonio-card">
+<div class="stars">★★★★★</div>
+<p>"Recomiendo ampliamente. Profesionalismo de primera categoría."</p>
+<cite>- Juan Martínez (Developer)</cite>
+</div>
+</div>
+</section>
+
+<!-- FONDO DE GARANTÍA -->
+<section class="garantia-tienda" data-aos="fade-up">
+<div class="garantia-item">
+<i class="fas fa-check-circle fa-3x"></i>
+<h4>Garantía 30 días</h4>
+<p>Dinero de vuelta sin preguntas</p>
+</div>
+<div class="garantia-item">
+<i class="fas fa-lock fa-3x"></i>
+<h4>Pago Seguro</h4>
+<p>Encriptación SSL 256-bit</p>
+</div>
+<div class="garantia-item">
+<i class="fas fa-headset fa-3x"></i>
+<h4>Soporte 24/7</h4>
+<p>Chat, email y teléfono</p>
+</div>
+<div class="garantia-item">
+<i class="fas fa-shipping-fast fa-3x"></i>
+<h4>Entrega Inmediata</h4>
+<p>Acceso al instante</p>
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section" data-aos="fade-up">
+<h3>📩 Ofertas Exclusivas</h3>
+<p>Recibe descuentos hasta 50% en nuevos productos</p>
+<form id="newsletter-form">
+<input type="email" id="newsletter-email" placeholder="Tu correo electrónico" required>
+<button type="submit" class="btn-primary">Suscribirse</button>
+</form>
+</section>
+
+</main>
+
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="contacto.html">Soporte</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scroll-to-top" class="btn-secondary" aria-label="Volver arriba">
+<i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Firebase Scripts -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Config y Operaciones -->
+<script src="js/firebase-config.js"></script>
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Script -->
+<script src="js/script.js"></script>
+
+<script>
+// 🛍️ FUNCIONES DE TIENDA ESPECÍFICAS
+function filterByCategory(category) {
+  const products = document.querySelectorAll('.producto-card');
+  
+  if (category === 'all') {
+    products.forEach(p => p.style.display = 'block');
+    Notifications.info('Mostrando todos los productos');
+    return;
+  }
+  
+  products.forEach(p => {
+    const cat = p.getAttribute('data-categoria');
+    p.style.display = cat === category ? 'block' : 'none';
+  });
+  
+  Notifications.info(`Mostrando: ${category}`);
+}
+
+// Búsqueda en tiempo real
+document.getElementById('buscar-tienda').addEventListener('input', function(e) {
+  const query = e.target.value.toLowerCase();
+  const products = document.querySelectorAll('.producto-card');
+  
+  products.forEach(p => {
+    const text = p.innerText.toLowerCase();
+    p.style.display = text.includes(query) ? 'block' : 'none';
+  });
+});
+
+// Actualizar preview del carrito
+function updateCartPreview() {
+  const cart = Cart.getCart();
+  const preview = document.getElementById('carrito-preview');
+  const total = document.getElementById('carrito-total');
+  
+  if (cart.length === 0) {
+    preview.innerHTML = '<p><em>Carrito vacío</em></p>';
+    total.textContent = '$0.00';
+  } else {
+    preview.innerHTML = cart.map(item => 
+      `<p>• ${item.name} x${item.qty} = $${(item.price * item.qty).toFixed(2)}</p>`
+    ).join('');
+    total.textContent = Cart.getTotal();
+  }
+}
+
+// Actualizar carrito cada segundo
+setInterval(updateCartPreview, 1000);
+updateCartPreview();
+
+// AOS inicializar
+AOS.init({ duration: 1000, once: true });
+
+console.log('✅ Página Tienda Completa Inicializada');
+</script>
+
+</body>
+</html>

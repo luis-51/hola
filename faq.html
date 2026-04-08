@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Preguntas Frecuentes - Respuestas a las dudas más comunes sobre nuestros servicios en Mi Empresa.">
+<meta name="keywords" content="FAQ, preguntas frecuentes, dudas, servicios, soporte">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+<!-- AOS Animation Library -->
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="galeria.html"><i class="fas fa-images"></i> Galería</a>
+<a class="protected" href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+<main>
+<section class="faq" data-aos="fade-up">
+<h2>Preguntas Frecuentes</h2>
+<p>Aquí respondemos las dudas más comunes sobre nuestros servicios. Si no encuentras tu respuesta, <a href="contacto.html">contáctanos</a>.</p>
+<div class="faq-list">
+<div class="faq-item">
+<h3>¿Qué servicios ofrecen?</h3>
+<p>Ofrecemos diseño web, desarrollo de aplicaciones, consultoría tecnológica y soporte continuo.</p>
+</div>
+<div class="faq-item">
+<h3>¿Cuánto tiempo toma un proyecto?</h3>
+<p>Depende del alcance, pero un sitio web básico toma 2-4 semanas, mientras que aplicaciones complejas pueden llevar 2-6 meses.</p>
+</div>
+<div class="faq-item">
+<h3>¿Ofrecen soporte después del lanzamiento?</h3>
+<p>Sí, incluimos mantenimiento mensual y soporte técnico por un año.</p>
+</div>
+<div class="faq-item">
+<h3>¿Cómo puedo solicitar un presupuesto?</h3>
+<p>Completa el formulario de contacto o envíanos un email con los detalles de tu proyecto.</p>
+</div>
+<div class="faq-item">
+<h3>¿Trabajan con empresas pequeñas?</h3>
+<p>Sí, atendemos a startups, PYMES y grandes empresas con soluciones personalizadas.</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="terminos.html">Aviso Legal</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<!-- 🔥 Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Firebase Configuration -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Firebase Operations -->
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Application -->
+<script src="js/script.js"></script>
+</body>
+</html>

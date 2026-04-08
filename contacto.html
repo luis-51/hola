@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Contáctanos para servicios profesionales en Mi Empresa.">
+<meta name="keywords" content="contacto, formulario, email, ubicación, servicios">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init('YOUR_PUBLIC_KEY'); // Reemplaza con tu clave pública de EmailJS
+  })();
+</script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="galeria.html"><i class="fas fa-images"></i> Galería</a>
+<a class="protected" href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+<main>
+<section class="contact">
+<h2>Envíanos un Mensaje</h2>
+<p>Estamos aquí para ayudarte. Completa el formulario y nos pondremos en contacto contigo pronto.</p>
+<form id="contact-form" onsubmit="enviarFormulario(event)">
+<div class="form-group">
+<label for="nombre"><i class="fas fa-user"></i> Nombre</label>
+<input type="text" id="nombre" placeholder="Tu nombre completo" required>
+</div>
+<div class="form-group">
+<label for="email"><i class="fas fa-envelope"></i> Email</label>
+<input type="email" id="email" placeholder="tu@email.com" required>
+</div>
+<div class="form-group">
+<label for="telefono"><i class="fas fa-phone"></i> Teléfono (opcional)</label>
+<input type="tel" id="telefono" placeholder="+1 234 567 890">
+</div>
+<div class="form-group">
+<label for="mensaje"><i class="fas fa-comment"></i> Mensaje</label>
+<textarea id="mensaje" placeholder="Describe tu consulta o proyecto" required></textarea>
+</div>
+<button type="submit" class="btn-primary">Enviar Mensaje</button>
+</form>
+<div class="contact-info">
+<h3>Información de Contacto</h3>
+<div class="info-item">
+<i class="fas fa-map-marker-alt"></i>
+<p>Dirección: Calle Ficticia 123, Ciudad, País</p>
+</div>
+<div class="info-item">
+<i class="fas fa-phone"></i>
+<p>Teléfono: +1 234 567 890</p>
+</div>
+<div class="info-item">
+<i class="fas fa-envelope"></i>
+<p>Email: info@miempresa.com</p>
+</div>
+<div class="info-item">
+<i class="fas fa-clock"></i>
+<p>Horario: Lunes a Viernes, 9:00 - 18:00</p>
+</div>
+</div>
+<div class="map">
+<h3>Nuestra Ubicación</h3>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153168!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1f9c7b2b1e!2sFederation%20Square!5e0!3m2!1ses!2sau!4v1611811234567!5m2!1ses!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="terminos.html">Aviso Legal</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<!-- 🔥 Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Firebase Configuration -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Firebase Operations -->
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Application -->
+<script src="js/script.js"></script>
+</body>
+</html>
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Acerca de Mi Empresa - Nuestra historia, misión, visión y valores.">
+<meta name="keywords" content="acerca de, historia, misión, visión, valores, empresa">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acerca de - Mi Empresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="icon" href="https://picsum.photos/32/32" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header>
+<h1>Mi Empresa</h1>
+<nav>
+<button id="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+<div id="nav-links">
+<a class="protected" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+<a class="protected" href="acerca.html"><i class="fas fa-info-circle"></i> Acerca de</a>
+<a class="protected" href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+<a class="protected" href="galeria.html"><i class="fas fa-images"></i> Galería</a>
+<a class="protected" href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+<a class="protected" href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a>
+<a class="protected" href="perfil.html"><i class="fas fa-user"></i> Perfil</a>
+</div>
+<div id="auth-status" class="auth-status">
+<div class="user-info">
+<span id="user-name"></span>
+<i id="user-avatar" class="fas fa-user-circle"></i>
+</div>
+<button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+</div>
+<button id="theme-toggle" class="btn-secondary tooltip"><i class="fas fa-moon"></i> Tema<span class="tooltiptext">Cambia entre modo claro y oscuro</span></button>
+</nav>
+</header>
+<main>
+<section class="about">
+<h2>Nuestra Historia</h2>
+<p>Fundada en 2020, Mi Empresa se dedica a proporcionar soluciones tecnológicas innovadoras. Nuestro equipo de expertos combina creatividad y tecnología para ayudar a nuestros clientes a alcanzar sus objetivos. Desde nuestros inicios, hemos trabajado con empresas de diversos sectores, entregando proyectos de alta calidad que generan resultados tangibles.</p>
+<div class="stats">
+<div class="stat">
+<h3>100+</h3>
+<p>Proyectos Completados</p>
+</div>
+<div class="stat">
+<h3>50+</h3>
+<p>Clientes Satisfechos</p>
+</div>
+<div class="stat">
+<h3>5</h3>
+<p>Años de Experiencia</p>
+</div>
+</div>
+<h2>Misión</h2>
+<p>Ofrecer servicios de alta calidad que impulsen el crecimiento de nuestros clientes a través de la innovación y la excelencia. Nos comprometemos a entender las necesidades únicas de cada cliente y proporcionar soluciones personalizadas que superen sus expectativas.</p>
+<h2>Visión</h2>
+<p>Ser líderes en el sector tecnológico, reconocidos por nuestra integridad, compromiso con la satisfacción del cliente y capacidad para adaptarnos a las últimas tendencias tecnológicas. Aspiramos a ser el socio de confianza para empresas que buscan transformar su presencia digital.</p>
+<h2>Valores</h2>
+<div class="values-grid">
+<div class="value">
+<i class="fas fa-lightbulb"></i>
+<h4>Innovación</h4>
+<p>Buscamos constantemente nuevas formas de resolver problemas y mejorar nuestros servicios.</p>
+</div>
+<div class="value">
+<i class="fas fa-handshake"></i>
+<h4>Integridad</h4>
+<p>Actuamos con honestidad, transparencia y ética en todas nuestras interacciones.</p>
+</div>
+<div class="value">
+<i class="fas fa-star"></i>
+<h4>Excelencia</h4>
+<p>Nos esforzamos por la perfección en todo lo que hacemos, superando estándares de calidad.</p>
+</div>
+<div class="value">
+<i class="fas fa-users"></i>
+<h4>Colaboración</h4>
+<p>Trabajamos en equipo con nuestros clientes para lograr objetivos comunes.</p>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+</div>
+<div class="footer-section">
+<ul class="footer-links">
+<li><a href="privacidad.html">Política de Privacidad</a></li>
+<li><a href="terminos.html">Términos y Condiciones</a></li>
+<li><a href="terminos.html">Aviso Legal</a></li>
+<li><a href="faq.html">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<div class="social-links">
+<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+<!-- 🔥 Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js"></script>
+
+<!-- Firebase Configuration -->
+<script src="js/firebase-config.js"></script>
+
+<!-- Firebase Operations -->
+<script src="js/firebase-operations.js"></script>
+
+<!-- Main Application -->
+<script src="js/script.js"></script>
+</body>
+</html>
